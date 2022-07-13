@@ -15,7 +15,7 @@ import thread.Thread1;
 
 public class Main {
 
-	public static <T> void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException {
 		Thread t1 = new Thread(new Thread1(1));
 		Thread t2 = new Thread(new Thread1(2));
 		Thread t3 = new Thread(new Thread1(3));
@@ -27,23 +27,18 @@ public class Main {
 		list.add(t3);
 		list.add(t4);
 
-		/************************************************/
 
 		startThreadsInOrder(list);
 
-		/************************************************/
 
 		startThreadsInThreadPool(list, 3);
 
-		/************************************************/
 
 		cachedThreadPool(list);
 
-		/************************************************/
 
 		scheduleThreadsExecution(list);
 		
-		/************************************************/
 	}
 
 	public static void startThreadsInOrder(List<Runnable> list) {
